@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+tanoruby:
+  name: たのしいRuby
+  price: 2600
+  isbn: 978-4-7973-5740-0
+
+metapro:
+  name: メタプログラミングRuby
+  price: 2800
+  isbn: 978-4-04-868715-7

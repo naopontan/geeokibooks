@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @book.name %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @book.price %><%# FIXME: yen(@book.price) ヘルパーメソッドを実装せよ ex) 1,300円
+</p>
+
+<p>
+  <b>Isbn:</b>
+  <%= @book.isbn %>
+</p>
+
+<hr />
+
+<% if current_user %>
+  <%= form_for(current_user.rentals.build(:book_id => @book.to_param)) do |f| %>
+    <%= f.hidden_field :book_id %>
+    <%= f.hidden_field :user_id %>
+    <%= f.submit %>
+  <% end %>
+<% else %>
+  レンタルするには 
+  <%= link_to "ログイン", "/auth/twitter" %>
+  して下さい。
+<% end %>
+
+<h2>レンタル履歴</h2>
+<table class="table table-condensed table-striped">
+  <tr>
+    <th>User</th>
+    <th>作成日時</th>
+    <th>更新日時</th>
+  </tr>
+<% @book.rentals.each do |rental| %>
+  <tr>
+    <td><%= rental.user.name -%></td>
+    <td><%= rental.created_at -%></td>
+    <td><%= rental.updated_at -%></td>
+  </tr>
+<% end -%>
+
+
+
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>

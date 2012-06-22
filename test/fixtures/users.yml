@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+dummy1:
+  provider: twitter
+  uid: dummy1
+  screen_name: dummy1_screen_name
+  name: dummy1_name
+
+dummy2:
+  provider: twitter
+  uid: dummy2
+  screen_name: dummy2_screen_name
+  name: dummy2_name

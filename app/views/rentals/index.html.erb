@@ -1,0 +1,26 @@
+<h1>Listing rentals</h1>
+
+<table class="table table-condensed table-striped">
+  <tr>
+    <th>Book</th>
+    <th>User</th>
+    <th>State</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @rentals.each do |rental| %>
+  <tr>
+    <td><%= rental.book_id %></td>
+    <td><%= rental.user_id %></td>
+    <td><%= rental.state %></td>
+    <td><%= link_to 'Show', rental %></td>
+    <td><%= link_to 'Edit', edit_rental_path(rental) %></td>
+    <td><%= link_to 'Destroy', rental, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= link_to 'New Rental', new_rental_path, :class => "btn" %>

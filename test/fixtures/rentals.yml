@@ -1,0 +1,14 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  book: tanoruby
+  user: dummy1
+  state: MyString
+  created_at: 2012-05-26 06:27:10 UTC
+
+two:
+  book: tanoruby
+  user: dummy2
+  state: MyString
+  created_at: 2012-04-26 06:27:10 UTC
+
