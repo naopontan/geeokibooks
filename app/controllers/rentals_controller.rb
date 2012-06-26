@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 class RentalsController < ApplicationController
 
-  # TODO: レンタル中の状態から「返却」の概念の仕様考えろ
-
   # GET /rentals
   # GET /rentals.json
   def index
