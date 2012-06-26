@@ -4,6 +4,8 @@ class CreateRentals < ActiveRecord::Migration
       t.integer :book_id, :null => false
       t.integer :user_id, :null => false
       t.string :state
+      t.datetime :rentaled_at
+      t.datetime :returned_at
 
       t.timestamps
     end

@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class BookTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "rental?" do
+    assert books(:tanoruby).rental?
+  end
 end
