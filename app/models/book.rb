@@ -3,6 +3,4 @@ class Book < ActiveRecord::Base
 
   has_many :rentals
   has_many :users, :through => :rentals
-
-  paginates_per 1
 end

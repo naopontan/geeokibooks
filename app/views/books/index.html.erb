@@ -5,7 +5,7 @@
     <th>Name</th>
     <th>Price</th>
     <th>Isbn</th>
-    <%# FIXME: 「今までの総レンタル数」の列を追加せよ %>
+    <th>Count</th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,6 +16,7 @@
     <td><%= book.name %></td>
     <td><%= book.price %></td>
     <td><%= book.isbn %></td>
+    <td><%= book.rentals.count %></td>
     <td><%= link_to 'Show', book %></td>
     <td><%= link_to 'Edit', edit_book_path(book) %></td>
     <td><%= link_to 'Destroy', book, confirm: 'Are you sure?', method: :delete %></td>
