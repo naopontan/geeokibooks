@@ -4,8 +4,10 @@ tanoruby:
   name: たのしいRuby
   price: 2600
   isbn: 978-4-7973-5740-0
+  quantity: 2
 
 metapro:
   name: メタプログラミングRuby
   price: 2800
   isbn: 978-4-04-868715-7
+  quantity: 1
