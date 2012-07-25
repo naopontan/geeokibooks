@@ -8,6 +8,8 @@ class Rental < ActiveRecord::Base
 
   default_scope :order => "created_at DESC"
 
+  scope :borrowed, where('returned_at IS NULL')
+
   before_save do |record|
     record.rentaled_at = Time.now if record.new_record?
   end
