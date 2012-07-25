@@ -26,12 +26,4 @@ class Book < ActiveRecord::Base
   	end
   end
 
-  # TODO: 「借りる」と「返す」のメソッド作る?メソッド名は?
-  def borrow
- 
-  end
-
-  def put_back
-  	
-  end
 end
