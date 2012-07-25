@@ -11,11 +11,11 @@ class Book < ActiveRecord::Base
   end
 
   def on_rental_count
-  	count = 0
-  	rentals.each do |x|
-  		count += 1 if x.returned_at.nil?
-  	end
-  	count
+    count = 0
+    rentals.each do |x|
+      count += 1 if x.returned_at.nil?
+    end
+    count
   end
 
   def left?
