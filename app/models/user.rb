@@ -11,4 +11,14 @@ class User < ActiveRecord::Base
       user.screen_name = auth["info"]["nickname"]
     end
   end
+
+  def book_rental(b)
+    rentals.create!(:book_id => b.id) if b.left?
+  end
+
+
+  def book_return(b)
+    
+  end
+
 end
