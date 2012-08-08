@@ -10,4 +10,9 @@ class UserTest < ActiveSupport::TestCase
     assert users(:dummy1).borrow(books(:tanoruby)), '最後の1冊をレンタル'
     assert_nil users(:dummy2).borrow(books(:tanoruby)), '全てレンタル中なのでレンタルできない'
   end
+
+  test "should give back" do
+    assert users(:dummy1).give_back(books(:tanoruby)).returned_at
+    assert_nil users(:dummy2).give_back(books(:tanoruby))
+  end
 end
