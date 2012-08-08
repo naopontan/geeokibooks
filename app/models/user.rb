@@ -12,12 +12,12 @@ class User < ActiveRecord::Base
     end
   end
 
-  def book_rental(b)
+  def borrow(b)
     rentals.create!(:book_id => b.id) if b.left?
   end
 
 
-  def book_return(b)
+  def give_back(b)
     
   end
 
