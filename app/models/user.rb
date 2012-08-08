@@ -18,7 +18,13 @@ class User < ActiveRecord::Base
 
 
   def give_back(b)
-    
+    rentals.borrowed.each do |rental| #まずborrowedでスコープする
+      if rental.book == b #オブジェクトで比較したほうがわかりやすい。 book.idよりも。
+        rental.update_attribute(:returned_at, TIme.now) #saveはコミ
+        return rental #ひとつtrueになるとeachを抜ける。ことによって一冊にたいしてだけの処理とする。
+      end
+    end
+    nil #失敗したときのためにnilを明示。
   end
 
 end
