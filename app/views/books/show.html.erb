@@ -16,8 +16,7 @@
 </p>
 
 <hr />
-
-<% if current_user %>
+<% if current_user && @book.left? %>
   <%= form_for(current_user.rentals.build(:book_id => @book.to_param)) do |f| %>
     <%= f.hidden_field :book_id %>
     <%= f.hidden_field :user_id %>
