@@ -16,18 +16,21 @@
 </p>
 
 <hr />
-<% if current_user && @book.left? %>
-  <%= form_for(current_user.rentals.build(:book_id => @book.to_param)) do |f| %>
-    <%= f.hidden_field :book_id %>
-    <%= f.hidden_field :user_id %>
-    <%= f.submit %>
+<% if @book.left? %>
+  <% if current_user %>
+    <%= form_for(current_user.rentals.build(:book_id => @book.to_param)) do |f| %>
+      <%= f.hidden_field :book_id %>
+      <%= f.hidden_field :user_id %>
+      <%= f.submit %>
+    <% end %>
+  <% else %>
+    レンタルするには 
+    <%= link_to "ログイン", "/auth/twitter" %>
+    して下さい。
   <% end %>
 <% else %>
-  レンタルするには 
-  <%= link_to "ログイン", "/auth/twitter" %>
-  して下さい。
+    すべての本が貸し出し中です。
 <% end %>
-
 <h2>レンタル履歴</h2>
 <table class="table table-condensed table-striped">
   <tr>
