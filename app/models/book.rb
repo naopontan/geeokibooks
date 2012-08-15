@@ -17,4 +17,8 @@ class Book < ActiveRecord::Base
   def left?
     (quantity - on_rental_count) > 0
   end
+
+  def borrowed_users
+    rentals.borrowed.map(&:user)
+  end
 end

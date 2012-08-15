@@ -16,7 +16,6 @@ class User < ActiveRecord::Base
     rentals.create!(:book_id => b.id) if b.left?
   end
 
-
   def give_back(b)
     rentals.borrowed.each do |rental| #まずborrowedでスコープする
       if rental.book == b #オブジェクトで比較したほうがわかりやすい。 book.idよりも。
