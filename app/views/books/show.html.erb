@@ -47,7 +47,13 @@
     <td><%= rental.user.name -%></td>
     <td><%= rental.created_at -%></td>
     <td><%= rental.updated_at -%></td>
-    <td><%= rental.returned_at -%></td>
+    <td>
+      <% if rental.returned_at.nil? %>
+        貸し出し中
+      <% else %>
+        <%= rental.returned_at -%>
+      <% end %>
+    </td>
   </tr>
 <% end -%>
 
