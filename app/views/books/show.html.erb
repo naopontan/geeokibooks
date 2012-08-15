@@ -40,12 +40,14 @@
     <th>User</th>
     <th>作成日時</th>
     <th>更新日時</th>
+    <th>返却日時</th>
   </tr>
 <% @book.rentals.each do |rental| %>
   <tr>
     <td><%= rental.user.name -%></td>
     <td><%= rental.created_at -%></td>
     <td><%= rental.updated_at -%></td>
+    <td><%= rental.returned_at -%></td>
   </tr>
 <% end -%>
 
