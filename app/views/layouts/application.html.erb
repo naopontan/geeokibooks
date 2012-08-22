@@ -12,16 +12,14 @@
       <div class="container">
         <%= link_to 'geeoki books', root_path, :class => "brand" %>
         <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="">
+            <div id="user-box">
                 <% if current_user %>
-                  Welcome <%= current_user.name %>!
-                  <%= link_to "Sign Out", signout_path %>
+                  Welcome <span class="user-name"><%= current_user.name %></span>!
+                  <%= link_to "Sign Out", signout_path, :id => 'log-in-out', :class => 'btn btn-success' %>
                 <% else %>
-                  <%= link_to "Sign in with Twitter", "/auth/twitter" %>
+                  <%= link_to "Sign in with Twitter", "/auth/twitter",:id => 'log-in-out', :class => 'btn btn-success' %>
                 <% end %>
-              </li>
-            </ul>
+            </div>
           </div>
 
       </div>

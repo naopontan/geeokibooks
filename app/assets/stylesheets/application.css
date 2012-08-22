@@ -114,7 +114,7 @@ code{padding:2px 4px;color:#d14;background-color:#f7f7f9;border:1px solid #e1e1e
 pre{display:block;padding:10px;margin:0 0 10.5px;font-size:12.950000000000001px;line-height:21px;word-break:break-all;word-wrap:break-word;white-space:pre;white-space:pre-wrap;background-color:#f5f5f5;border:1px solid #ccc;border:1px solid rgba(0, 0, 0, 0.15);-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;}pre.prettyprint{margin-bottom:21px;}
 pre code{padding:0;color:inherit;background-color:transparent;border:0;}
 .pre-scrollable{max-height:340px;overflow-y:scroll;}
-form{margin:0 0 21px;}
+form{margin:0;}
 fieldset{padding:0;margin:0;border:0;}
 legend{display:block;width:100%;padding:0;margin-bottom:31.5px;font-size:21px;line-height:42px;color:#333333;border:0;border-bottom:1px solid #e5e5e5;}legend small{font-size:15.75px;color:#999999;}
 label,input,button,select,textarea{font-size:14px;font-weight:normal;line-height:21px;}
@@ -713,7 +713,7 @@ a.label:hover,a.badge:hover{color:#ffffff;text-decoration:none;cursor:pointer;}
 .hide{display:none;}
 .show{display:block;}
 .invisible{visibility:hidden;}
-.navbar .brand,legend,.btn,.navbar .nav>li>a,div.subnav li>a,.navbar-text{font-family:'Josefin Slab',serif;font-weight:700;}
+.navbar .brand,legend,.navbar .nav>li>a,div.subnav li>a,.navbar-text{font-family:'Josefin Slab',serif;font-weight:700;}
 h3{font-size:20px;}
 h4{font-size:16px;}
 h5{font-size:14px;}
@@ -813,3 +813,6 @@ footer.footer{border-top:2px solid #f5f3dc;}
 .content{padding-top:80px;}
 .sidebar-nav{margin-top:50px;}
 #notice{padding:8px 35px 8px 14px;margin-bottom:21px;text-shadow:0 1px 0 rgba(255, 255, 255, 0.5);background-color:lightsalmon;border:1px solid lightsalmon;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;}
+#user-box{float:right;padding:10px 5px;}
+.user-name{color:#EBD90B;}
+#log-in-out{padding: 0 3px;font-size: 10px;}
