@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<% if flash[:notice] %>
+  <p id="notice"><a class="close" data-dismiss="alert" href="#">&times;</a><%= notice %></p>
+<% end %>
 
 <p>
   <b>Name:</b>
