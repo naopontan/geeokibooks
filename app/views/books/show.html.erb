@@ -49,13 +49,7 @@
     <td><%= rental.user.name -%></td>
     <td><%= rental.created_at -%></td>
     <td><%= rental.updated_at -%></td>
-    <td>
-      <% if rental.rental? %>
-        貸し出し中
-      <% else %>
-        <%= rental.returned_at -%>
-      <% end %>
-    </td>
+    <td><%= rental.returned_at || "貸し出し中" %></td>
   </tr>
 <% end -%>
 

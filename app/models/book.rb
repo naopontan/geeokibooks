@@ -3,7 +3,7 @@ class Book < ActiveRecord::Base
 
   has_many :rentals
   has_many :users, :through => :rentals
-  has_one :last_rental, :class_name => 'Rental', :order => 'created_at DESC'
+  has_one :last_rental, :class_name => 'Rental', :order => 'created_at DESC' #FIXME:バグ（スコープを限定すること）
 
   def rental?
     return false if last_rental.blank?
