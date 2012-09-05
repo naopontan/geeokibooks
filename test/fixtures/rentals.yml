@@ -5,7 +5,6 @@ one:
   user: dummy1
   state: MyString
   created_at: 2012-05-26 06:27:10 UTC
-  rentaled_at: 2012-05-26 06:27:10 UTC
   returned_at:
 
 two:
@@ -13,6 +12,5 @@ two:
   user: dummy2
   state: MyString
   created_at: 2012-04-26 06:27:10 UTC
-  rentaled_at: 2012-04-26 06:27:10 UTC
   returned_at: 2012-04-30 12:34:56 UTC
 

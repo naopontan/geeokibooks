@@ -50,7 +50,7 @@
     <td><%= rental.created_at -%></td>
     <td><%= rental.updated_at -%></td>
     <td>
-      <% if rental.returned_at.nil? %>
+      <% if rental.rental? %>
         貸し出し中
       <% else %>
         <%= rental.returned_at -%>
