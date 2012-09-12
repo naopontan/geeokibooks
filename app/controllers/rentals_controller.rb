@@ -48,6 +48,13 @@ class RentalsController < ApplicationController
     end
   end
 
+  # GET /rentals/1/give_back
+  def give_back
+    @rental = Rental.find(params[:id])
+    @rental.update_attribute(:returned_at, Time.now)
+    redirect_to @rental.book, notice: '返却しました'
+  end
+
   # PUT /rentals/1
   # PUT /rentals/1.json
   def update

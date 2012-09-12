@@ -1,5 +1,9 @@
 Geeokibooks::Application.routes.draw do
-  resources :rentals
+  resources :rentals do
+    member do
+      get 'give_back'
+    end
+  end
 
   resources :books
 
