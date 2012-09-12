@@ -26,18 +26,19 @@
       <%= f.submit %>
     <% end %>
   <% else %>
-    レンタルするには 
+    この本を借りるには 
     <%= link_to "ログイン", "/auth/twitter" %>
     して下さい。
   <% end %>
 <% else %>
-    <p>すべての本が貸し出し中です。</p>
+    <p>この本はすべて貸し出し中です。</p>
   <% if current_user && @book.borrowed_users.include?(current_user) %>
-    <%= link_to '本を返す', give_back_rental_path(current_user.rentals) %>
-    <p><button name="button" type="button">give_backする</button></p>
+    <%= link_to '本を返す', give_back_rental_path(current_user.rentals.borrowed.select{|x| x.book == @book}.first), :class => "btn btn-warning" %>
   <% end %>
 <% end %>
-<h2>レンタル履歴</h2>
+
+<div id="rental-history">
+<h2>貸し出し状況</h2>
 <table class="table table-condensed table-striped">
   <tr>
     <th>User</th>
@@ -58,3 +59,4 @@
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
+</div>
