@@ -18,24 +18,13 @@
 </p>
 
 <hr />
-<% if @book.left? %>
-  <% if current_user %>
-    <%= form_for(current_user.rentals.build(:book_id => @book.to_param)) do |f| %>
-      <%= f.hidden_field :book_id %>
-      <%= f.hidden_field :user_id %>
-      <%= f.submit %>
-    <% end %>
-  <% else %>
-    この本を借りるには 
-    <%= link_to "ログイン", "/auth/twitter" %>
-    して下さい。
-  <% end %>
+
+<% if current_user %>
+  <%= render 'logged_in' %>
 <% else %>
-    <p>この本はすべて貸し出し中です。</p>
-  <% if current_user && @book.borrowed_users.include?(current_user) %>
-    <%= link_to '本を返す', give_back_rental_path(current_user.rentals.borrowed.select{|x| x.book == @book}.first), :class => "btn btn-warning" %>
-  <% end %>
+  <%= render 'not_logged_in' %>
 <% end %>
+
 
 <div id="rental-history">
 <h2>貸し出し状況</h2>

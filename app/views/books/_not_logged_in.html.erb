@@ -1,0 +1,7 @@
+<% if @book.left? %>
+	この本を借りるには
+    <%= link_to "ログイン", "/auth/twitter" %>
+    して下さい。
+<% else %>
+  <p>この本は貸し出し中です。<%= link_to "返却しますか？", "/auth/twitter" %></p>
+<% end %>
