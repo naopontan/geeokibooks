@@ -7,7 +7,7 @@
     <% end %>
   <% end %>
 <% else %>
-  <p>この本は貸し出し中です。</p>
+  <p><span class="label label-important">貸し出し中</span></p>
 <% end %>
 
 <% if @book.borrowed_users.include?(current_user) %>

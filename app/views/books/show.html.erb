@@ -7,17 +7,12 @@
     <img src="/assets/nocover.png" />
   </div>
   <div id="book_details">
-    <h1><%= @book.name %></h1>
+    <h1 class="book-title"><%= @book.name %></h1>
+    <% if current_user %>
     <%= link_to 'Edit Book Info', edit_book_path(@book) %>
-    <p>
-      <b>Price:</b>
-      <%= yen @book.price %>
-    </p>
-
-    <p> 
-      <b>Isbn:</b>
-      <%= @book.isbn %>
-    </p>
+    <% end %>
+    <li><b>Price:</b><%= yen @book.price %></li>
+    <li><b>Isbn:</b><%= @book.isbn %></li>
   </div>
   <hr />
   <% if current_user %>

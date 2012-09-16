@@ -4,6 +4,7 @@
   <title>Geeokibooks</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= stylesheet_link_tag    "extra_styles", :media => "all" %>
+  <link href='http://fonts.googleapis.com/css?family=Galindo' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
@@ -16,7 +17,7 @@
       <p class="lead">ギー沖の蔵書管理サイト</p>
     </div>
     <div class="span6">
-      <div id="user-box">
+      <div id="user-box" class="pull-right">
         <% if current_user %>
           Welcome <span class="user-name"><%= current_user.name %>! </span>
           <%= link_to "Sign Out", signout_path, :id => 'log-in-out' %>
@@ -28,8 +29,10 @@
   </div>
   <div class="subnav">
     <ul class="nav nav-pills">
-      <li><%= link_to 'Books', books_path %></li>
+      <li><%= link_to 'Book List', books_path %></li>
+      <% if current_user %>
       <li><%= link_to 'Add New Book', new_book_path %></li>
+      <% end %>
     </ul>
   </div>
 </header>
