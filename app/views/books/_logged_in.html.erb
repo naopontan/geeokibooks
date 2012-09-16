@@ -3,7 +3,7 @@
     <%= form_for(current_user.rentals.build(:book_id => @book.to_param)) do |f| %>
       <%= f.hidden_field :book_id %>
       <%= f.hidden_field :user_id %>
-      <%= f.submit %>
+      <%= f.submit '借りる', :class => "btn btn-primary" %>
     <% end %>
   <% end %>
 <% else %>

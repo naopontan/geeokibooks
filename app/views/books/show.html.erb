@@ -2,32 +2,36 @@
   <p id="notice"><a class="close" data-dismiss="alert" href="#">&times;</a><%= notice %></p>
 <% end %>
 
-<p>
-  <b>Name:</b>
-  <%= @book.name %>
-</p>
+<div id="book_info">
+  <div id="book_cover">
+    <img src="/assets/nocover.png" />
+  </div>
+  <div id="book_details">
+    <h1><%= @book.name %></h1>
+    <%= link_to 'Edit Book Info', edit_book_path(@book) %>
+    <p>
+      <b>Price:</b>
+      <%= yen @book.price %>
+    </p>
 
-<p>
-  <b>Price:</b>
-  <%= yen @book.price %>
-</p>
+    <p> 
+      <b>Isbn:</b>
+      <%= @book.isbn %>
+    </p>
+  </div>
+  <hr />
+  <% if current_user %>
+    <%= render 'logged_in' %>
+  <% else %>
+    <%= render 'not_logged_in' %>
+  <% end %>
+</div>
 
-<p>
-  <b>Isbn:</b>
-  <%= @book.isbn %>
-</p>
 
-<hr />
-
-<% if current_user %>
-  <%= render 'logged_in' %>
-<% else %>
-  <%= render 'not_logged_in' %>
-<% end %>
 
 
 <div id="rental-history">
-<h2>貸し出し状況</h2>
+<h2>Records</h2>
 <table class="table table-condensed table-striped">
   <tr>
     <th>User</th>
@@ -44,8 +48,4 @@
   </tr>
 <% end -%>
 
-
-
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
 </div>

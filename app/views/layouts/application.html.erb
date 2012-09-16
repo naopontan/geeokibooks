@@ -3,29 +3,42 @@
 <head>
   <title>Geeokibooks</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "extra_styles", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
-        <%= link_to 'geeoki books', root_path, :class => "brand" %>
-        <div class="nav-collapse collapse">
-            <div id="user-box">
-                <% if current_user %>
-                  Welcome <span class="user-name"><%= current_user.name %></span>!
-                  <%= link_to "Sign Out", signout_path, :id => 'log-in-out', :class => 'btn btn-success' %>
-                <% else %>
-                  <%= link_to "Sign in with Twitter", "/auth/twitter",:id => 'log-in-out', :class => 'btn btn-success' %>
-                <% end %>
-            </div>
-          </div>
-
+<div class="container">
+<header class="jumbotron subhead" id="overview">
+  <div class="row title-row">
+    <div class="span6">
+      <div class="site-title"><%= link_to 'GeeOki Library', root_path, :class => "brand" %></div>
+      <p class="lead">ギー沖の蔵書管理サイト</p>
+    </div>
+    <div class="span6">
+      <div id="user-box">
+        <% if current_user %>
+          Welcome <span class="user-name"><%= current_user.name %>! </span>
+          <%= link_to "Sign Out", signout_path, :id => 'log-in-out' %>
+        <% else %>
+          <%= link_to "Sign in with Twitter", "/auth/twitter",:id => 'log-in-out', :class => 'btn btn-primary' %>
+        <% end %>
       </div>
     </div>
   </div>
-<%= yield %>
+  <div class="subnav">
+    <ul class="nav nav-pills">
+      <li><%= link_to 'Books', books_path %></li>
+      <li><%= link_to 'Add New Book', new_book_path %></li>
+    </ul>
+  </div>
+</header>
+
+
+<div id="canvas">
+  <%= yield %>
+</div>
+</div>
 
 </body>
 </html>
