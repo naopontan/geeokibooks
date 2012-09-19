@@ -26,4 +26,8 @@ class User < ActiveRecord::Base
     nil #失敗したときのためにnilを明示。
   end
 
+  def borrowed_rental(b)
+    rentals.borrowed.select{|x| x.book == b}.first
+  end
+
 end

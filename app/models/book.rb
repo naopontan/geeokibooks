@@ -21,4 +21,9 @@ class Book < ActiveRecord::Base
   def borrowed_users
     rentals.borrowed.map(&:user)
   end
+
+  def borrowed?(current_user)
+    borrowed_users.include?(current_user)
+  end
+
 end

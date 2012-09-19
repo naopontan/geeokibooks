@@ -1,5 +1,5 @@
 <% if @book.left? %>
-  <% if !@book.borrowed_users.include?(current_user) %>
+  <% if !@book.borrowed?(current_user) %>
     <%= form_for(current_user.rentals.build(:book_id => @book.to_param)) do |f| %>
       <%= f.hidden_field :book_id %>
       <%= f.hidden_field :user_id %>
@@ -11,7 +11,7 @@
 <% end %>
 
 <% if @book.borrowed_users.include?(current_user) %>
-  <%= link_to '本を返す', give_back_rental_path(current_user.rentals.borrowed.select{|x| x.book == @book}.first), :class => "btn btn-warning" %>
+  <%= link_to '本を返す', give_back_rental_path(current_user.borrowed_rental(@book)), :class => "btn btn-warning" %>
 <% end %>
 <% #TODO: current_userが@bookを借りているかどうかの判定はよく使う気がするので borrowed_by_current_user? みたいなメソッドにしてはどう？ %>
 <% #TODO: give_back_rental_path以下が長いのでメソッド化したほうがよい？ %>
