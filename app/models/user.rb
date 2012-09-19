@@ -27,7 +27,12 @@ class User < ActiveRecord::Base
   end
 
   def borrowed_rental(b)
-    rentals.borrowed.select{|x| x.book == b}.first
+    rental_borrowed = rentals.borrowed.select{|x| x.book == b}
+    if rental_borrowed.empty?
+      nil
+    else
+      rental_borrowed.first
+    end
   end
 
 end
