@@ -1,5 +1,5 @@
 class Book < ActiveRecord::Base
-  attr_accessible :isbn, :name, :price
+  attr_accessible :isbn, :quantity, :name, :price, :author, :publisher, :pub_date, :img_url, :amz_url
 
   has_many :rentals
   has_many :users, :through => :rentals
