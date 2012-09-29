@@ -50,9 +50,13 @@ class RentalsController < ApplicationController
 
   # GET /rentals/1/give_back
   def give_back
-    @rental = Rental.find(params[:id])
-    @rental.update_attribute(:returned_at, Time.now)
-    redirect_to @rental.book, notice: '返却しました'
+    @rental = current_user.rentals.find_by_id(params[:id])
+    if @rental
+      @rental.update_attribute(:returned_at, Time.now)
+      redirect_to @rental.book, notice: '返却しました'
+    else
+      redirect_to books_path, notice: '不正アクセスです'
+    end
   end
 
   # PUT /rentals/1
