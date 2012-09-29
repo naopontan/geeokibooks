@@ -10,18 +10,45 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
-    <%= f.label :name %><br />
+  	<h2><%= @book.name %></h2>
+    <%= image_tag(@book.img_url, :alt => @book.name) %>
+  </div>
+  <div class="field">
+    <%= f.label :isbn %>
+    <%= f.text_field :isbn %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :price %><br />
+    <%= f.label :author %>
+    <%= f.text_field :author %>
+  </div>
+  <div class="field">
+    <%= f.label :publisher %>
+    <%= f.text_field :publisher %>
+  </div>
+  <div class="field">
+    <%= f.label :price %>
     <%= f.number_field :price %>
   </div>
   <div class="field">
-    <%= f.label :isbn %><br />
-    <%= f.text_field :isbn %>
+    <%= f.label :pub_date %>
+    <%= f.text_field :pub_date %>
+  </div>
+  <div class="field">
+    <%= f.label :img_url %>
+    <%= f.text_field :img_url %>
+  </div>
+  <div class="field">
+    <%= f.label :amz_url %>
+    <%= f.text_field :amz_url %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -40,6 +40,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 
 gem 'kaminari'
+gem 'amazon-ecs'
 
 group :development, :test do
   gem 'pry-rails'
