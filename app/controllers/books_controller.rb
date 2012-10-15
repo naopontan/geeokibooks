@@ -1,7 +1,6 @@
+# -*- coding: utf-8 -*-
 class BooksController < ApplicationController
-  
-  require 'amazon/ecs'
-  
+
   # GET /books
   # GET /books.json
   def index
@@ -31,7 +30,7 @@ class BooksController < ApplicationController
   def new
     # FIXME ダミーisbn。ユーザ入力を受け付けられるようにする
     isbn = "4122024137"
-    book_info = fetch_amz_info(isbn)
+    book_info = Book.fetch_amz_info(isbn)
     @book = Book.new(
       :name => book_info["tile"],
       :price => book_info["price"],
@@ -98,37 +97,4 @@ class BooksController < ApplicationController
     end
   end
   
-  def fetch_amz_info(isbn)
-    item_hash = {}
-    Amazon::Ecs.options = {
-      :associate_tag => ENV['AMZ_ASSOC_TAG'],
-      :AWS_access_key_id => ENV['AMZ_ACCESS_KEY'],       
-      :AWS_secret_key => ENV['AMZ_SECET_KEY'] 
-      }
-
-    res = Amazon::Ecs.item_search(
-      isbn, {
-        :country => 'jp',
-        :search_index => 'Books',
-        :response_group => 'Medium'
-      }
-    )
-
-    res.is_valid_request?
-    p res.has_error?
-    p res.error
-
-    res.items.each do |item|
-      item_hash = {
-        "tile" => item.get('ItemAttributes/Title'),
-        "author" => item.get('ItemAttributes/Author'),
-        "price" => item.get('ItemAttributes/ListPrice/FormattedPrice'),
-        "publisher" => item.get('ItemAttributes/Publisher'),
-        "pub_date" => item.get('ItemAttributes/PublicationDate'),
-        "img_url" => item.get('MediumImage/URL'),
-        "amz_url" => item.get('DetailPageURL')
-      }
-    end
-    item_hash
-  end
 end
