@@ -1,4 +1,5 @@
 Geeokibooks::Application.routes.draw do
+  post "books/fetch_amz"
   resources :rentals do
     member do
       get 'give_back'

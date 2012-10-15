@@ -48,6 +48,12 @@ class BooksController < ApplicationController
     end
   end
 
+  # ajax
+  def fetch_amz
+    @book_info = Book.fetch_amz_info("4122024137")  # FIXME: ISBN値での検索結果が無かったら？複数だったら？
+    @my_isbn = params[:my_isbn]
+  end
+
   # GET /books/1/edit
   def edit
     @book = Book.find(params[:id])
