@@ -31,16 +31,9 @@ class BooksController < ApplicationController
     # FIXME ダミーisbn。ユーザ入力を受け付けられるようにする
     isbn = "4122024137"
     book_info = Book.fetch_amz_info(isbn)
-    @book = Book.new(
-      :name => book_info["tile"],
-      :price => book_info["price"],
-      :author => book_info["author"],
-      :publisher => book_info["publisher"],
-      :pub_date => book_info["pub_date"],
-      :img_url => book_info["img_url"],
-      :amz_url => book_info["amz_url"],
-      :isbn => isbn
-    )
+
+
+    @book = Book.fetch_amz_info(isbn)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -50,8 +43,7 @@ class BooksController < ApplicationController
 
   # ajax
   def fetch_amz
-    @book_info = Book.fetch_amz_info("4122024137")  # FIXME: ISBN値での検索結果が無かったら？複数だったら？
-    @my_isbn = params[:my_isbn]
+    @book_info = Book.fetch_amz_info(params[:my_isbn])  # FIXME: ISBN値での検索結果が無かったら？複数だったら？
   end
 
   # GET /books/1/edit

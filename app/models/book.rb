@@ -23,23 +23,23 @@ class Book < ActiveRecord::Base
       }
     )
 
-    res.is_valid_request?
-    p res.has_error?
-    p res.error
+    raise "ISBNで複数結果が返ってきちゃった" if res.items.size >= 2
 
-    res.items.each do |item|
-      item_hash = {
-        "tile" => item.get('ItemAttributes/Title'),
-        "author" => item.get('ItemAttributes/Author'),
-        "price" => item.get('ItemAttributes/ListPrice/FormattedPrice'),
-        "publisher" => item.get('ItemAttributes/Publisher'),
-        "pub_date" => item.get('ItemAttributes/PublicationDate'),
-        "img_url" => item.get('MediumImage/URL'),
-        "amz_url" => item.get('DetailPageURL')
-      }
+    if res.items.empty?
+      return {}
     end
-    item_hash
+
+    {
+      "tile"      => res.items.first.get('ItemAttributes/Title'),
+      "author"    => res.items.first.get('ItemAttributes/Author'),
+      "price"     => res.items.first.get('ItemAttributes/ListPrice/FormattedPrice'),
+      "publisher" => res.items.first.get('ItemAttributes/Publisher'),
+      "pub_date"  => res.items.first.get('ItemAttributes/PublicationDate'),
+      "img_url"   => res.items.first.get('MediumImage/URL'),
+      "amz_url"   => res.items.first.get('DetailPageURL')
+    }
   end
+
   def rental?
     return false if last_rental.blank?
     last_rental.rental?
