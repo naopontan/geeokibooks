@@ -29,15 +29,16 @@ class Book < ActiveRecord::Base
       return {}
     end
 
-    {
-      "tile"      => res.items.first.get('ItemAttributes/Title'),
-      "author"    => res.items.first.get('ItemAttributes/Author'),
-      "price"     => res.items.first.get('ItemAttributes/ListPrice/FormattedPrice'),
-      "publisher" => res.items.first.get('ItemAttributes/Publisher'),
-      "pub_date"  => res.items.first.get('ItemAttributes/PublicationDate'),
-      "img_url"   => res.items.first.get('MediumImage/URL'),
-      "amz_url"   => res.items.first.get('DetailPageURL')
-    }
+    Book.new(
+      :name => res.items.first.get('ItemAttributes/Title'),
+      :price => res.items.first.get('ItemAttributes/ListPrice/FormattedPrice'),
+      :author => res.items.first.get('ItemAttributes/Author'),
+      :publisher => res.items.first.get('ItemAttributes/Publisher'),
+      :pub_date => res.items.first.get('ItemAttributes/PublicationDate'),
+      :img_url => res.items.first.get('MediumImage/URL'),
+      :amz_url => res.items.first.get('DetailPageURL'),
+      :isbn => isbn
+    )
   end
 
   def rental?
