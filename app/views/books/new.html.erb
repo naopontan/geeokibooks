@@ -1,12 +1,12 @@
 <h1>New book</h1>
 
-<%= render 'form' %>
-
 <%= form_tag(url_for(:action => 'fetch_amz'), :remote => true, :id => "result_form") do %>
   <%= text_field_tag :my_isbn %>
   <%= submit_tag 'Search' %>
 <% end %>
 
-<div id="result"></div>
+<div id="img"></div>
+
+<%= render 'form' %>
 
 <%= link_to 'Back', books_path %>

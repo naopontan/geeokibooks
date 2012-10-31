@@ -38,7 +38,7 @@ class BooksController < ApplicationController
 
   # ajax
   def fetch_amz
-    @book_info = Book.fetch_amz_info(params[:my_isbn])
+    @book = Book.fetch_amz_info(params[:my_isbn])
   end
 
   # GET /books/1/edit

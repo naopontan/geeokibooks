@@ -1,2 +1,9 @@
-<% i = image_tag(@book_info['img_url'], :alt => @book_info['name']) %>
-$('#result').html('<%= i %>');  <%# シングルクォートが大事 %>
+$('#img').html('<%= image_tag(@book.img_url, :alt => @book.name) %>');
+$('#book_name').val('<%= @book.name %>');
+$('#book_author').val('<%= @book.author %>');
+$('#book_pub_date').val('<%= @book.pub_date %>');
+$('#book_publisher').val('<%= @book.publisher %>');
+$('#book_price').val('<%= @book.price %>');
+$('#book_img_url').val('<%= @book.img_url %>');
+$('#book_amz_url').val('<%= @book.amz_url %>');
+$('#book_isbn').val('<%= @book.isbn %>');

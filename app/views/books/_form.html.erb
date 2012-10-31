@@ -11,8 +11,8 @@
     </div>
   <% end %>
   <div class="field">
-  	<h2><%= @book.name %></h2>
-    <%= image_tag(@book.img_url, :alt => @book.name) %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
   </div>
   <div class="field">
     <%= f.label :isbn %>
@@ -21,10 +21,6 @@
   <div class="field">
     <%= f.label :quantity %>
     <%= f.number_field :quantity %>
-  </div>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
   </div>
   <div class="field">
     <%= f.label :author %>
