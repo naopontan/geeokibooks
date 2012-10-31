@@ -8,6 +8,7 @@ class Book < ActiveRecord::Base
   has_one :last_rental, :class_name => 'Rental', :order => 'created_at DESC' #FIXME:バグ（スコープを限定すること）
 
   validates :isbn, :quantity, :name, :price, :author, :publisher, :pub_date, :img_url, :amz_url, :presence => true
+  validates :isbn, :uniqueness => true
 
   def self.fetch_amz_info(isbn)
     item_hash = {}
