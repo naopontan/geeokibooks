@@ -4,7 +4,11 @@
 
 <div id="book_info">
   <div id="book_cover">
-    <img src="/assets/nocover.png" />
+    <% if @book.img_url %>
+      <%= image_tag(@book.img_url) %>
+      <% else %>
+      <%= image_tag("/assets/nocover.png") %>
+    <% end %>
   </div>
   <div id="book_details">
     <h1 class="book-title"><%= @book.name %></h1>
